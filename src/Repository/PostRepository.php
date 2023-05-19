@@ -39,6 +39,18 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+
+   /**
+    * @return Post[] Returns an array of Post objects
+    */
+    public function findAll(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

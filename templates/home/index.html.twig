@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{# {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
+ <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
@@ -16,5 +16,32 @@
         <li>Your controller at <code><a href="{{ 'C:/laragon/www/astro_photo/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/laragon/www/astro_photo/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
     </ul>
-</div>
-{% endblock %}
+</div>  
+{% endblock %} #}
+
+
+
+{% block body%}
+    <table>
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Uploaded</th>
+                <th>Edit/delete</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>  
+                    <td><img src="{{ post.getImgPath }}"></td>
+                    <td><span> {{ post.getTitle }} </span></td>
+                    <td><span> {{ post.getContent }} </span></td>
+                    <td><span> {{ post.getCreatedAt().format('d/m/Y H:i') }} </span></td>
+                    <td><button>Edit</button><button>Delete</button><td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %} 
