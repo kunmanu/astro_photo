@@ -37,7 +37,7 @@
                 <tr>  
                     <td><img src="{{ post.getImgPath }}"></td>
                     <td><span> {{ post.getTitle }} </span></td>
-                    <td><span> {{ post.getContent }} </span></td>
+                    <td><span> {{ post.getContent | slice(0, 100) ~ '...' }} </span></td>
                     <td><span> {{ post.getCreatedAt().format('d/m/Y H:i') }} </span></td>
                     <td><button>Edit</button><button>Delete</button><td>
                 </tr>
